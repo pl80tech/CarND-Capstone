@@ -72,3 +72,7 @@ cd CarND-Capstone/ros
 roslaunch launch/site.launch
 ```
 5. Confirm that traffic light detection works on real life images
+
+### Writeup
+
+**==> Here is the link to my WriteUp for this project: [link](https://github.com/pl80tech/CarND-Capstone/blob/master/Writeup.md)**
