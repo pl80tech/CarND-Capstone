@@ -11,6 +11,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 
 * [About Capstone Project](#About-Capstone-Project)
 * [Project code](#Project-code)
+* [Rubric Points](#Rubric-Points)
 
 ---
 ## About Capstone Project
@@ -29,3 +30,8 @@ https://github.com/pl80tech/CarND-Capstone.git
 It is imported and frequently updated (cherry-pick or merge) from below original repository:
 
 https://github.com/udacity/CarND-Capstone.git
+
+---
+## Rubric Points
+
+Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1140/view) which need to be addressed to meet the requirements of this project.
