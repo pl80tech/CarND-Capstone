@@ -18,7 +18,8 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 
 The goals / steps of this project are the following:
 
-* To be added
+* The goal of this project is to program a Real Self-Driving Car on ROS (Robot Operating System) combining the technologies having been taught throughout the Nanodegree program.
+* More detail explanation can be found in [README](https://github.com/pl80tech/CarND-Capstone/blob/master/README.md)
 
 ---
 ## Project code
