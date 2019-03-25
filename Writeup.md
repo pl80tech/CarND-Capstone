@@ -41,3 +41,15 @@ https://github.com/udacity/CarND-Capstone.git
 ## Rubric Points
 
 Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1140/view) which need to be addressed to meet the requirements of this project.
+
+---
+## Code compilation
+
+---
+## Implementation
+
+### Traffic light detection node
+
+### Waypoint updater node
+
+### DBW node
