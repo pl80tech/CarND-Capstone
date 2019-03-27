@@ -30,8 +30,8 @@ class WaypointUpdater(object):
         rospy.init_node('waypoint_updater')
 
         # TODO: Add other member variables you need below
+        self.base_line = None
         self.pose = None
-        self.base_waypoints = None
         self.stopline_wp_idx =  -1
         self.waypoints_2d = None
         self.waypoint_tree = None
