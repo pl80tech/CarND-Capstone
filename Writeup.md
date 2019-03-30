@@ -18,6 +18,10 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 	* [Waypoint updater node](#Waypoint-updater-node)
 	* [DBW node](#DBW-node)
 
+[//]: # (Image References)
+
+[architecture]: ./imgs/architecture.jpg "System Architecture Diagram"
+
 ---
 ## About Capstone Project
 
