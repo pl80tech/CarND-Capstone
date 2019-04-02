@@ -10,6 +10,7 @@ from light_classification.tl_classifier import TLClassifier
 import tf
 import cv2
 import yaml
+import sys
 from scipy.spatial import KDTree
 
 STATE_COUNT_THRESHOLD = 3
@@ -51,6 +52,9 @@ class TLDetector(object):
         self.last_state = TrafficLight.UNKNOWN
         self.last_wp = -1
         self.state_count = 0
+
+        # Check whether to use light state from simulator (argument from command line )
+        self.use_simulator_light_state = sys.argv[1] == 'true'
 
         rospy.spin()
 
@@ -120,7 +124,7 @@ class TLDetector(object):
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
 
         """
-        if (self.config['use_simulator_light_state']):
+        if (self.use_simulator_light_state):
             # For testing, just return the light state
             return light.state
         else:
