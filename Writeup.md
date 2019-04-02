@@ -20,7 +20,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 
 [//]: # (Image References)
 
-[architecture]: ./imgs/architecture.jpg "System Architecture Diagram"
+[architecture]: ./imgs/architecture.png "System Architecture Diagram"
 
 ---
 ## About Capstone Project
@@ -51,6 +51,8 @@ Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1140/view) wh
 
 ---
 ## Implementation
+
+![alt text][architecture]
 
 ### Traffic light detection node
 
