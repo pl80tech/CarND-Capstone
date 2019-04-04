@@ -20,7 +20,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 
 [//]: # (Image References)
 
-[architecture]: ./imgs/architecture.png "System Architecture Diagram"
+[tuneKp]: ./log/Kp_tuning.jpg "Result with different Kp"
 
 ---
 ## About Capstone Project
@@ -44,15 +44,13 @@ https://github.com/udacity/CarND-Capstone.git
 ---
 ## Rubric Points
 
-Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1140/view) which need to be addressed to meet the requirements of this project.
+Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1969/view) which need to be addressed to meet the requirements of this project.
 
 ---
 ## Code compilation
 
 ---
 ## Implementation
-
-![alt text][architecture]
 
 ### Traffic light detection node
 
