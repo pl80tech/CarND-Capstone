@@ -74,6 +74,7 @@ This is a defined parameter for specifying as an argument in command line to use
 ```shell
 $ roslaunch launch/styx.launch use_simulator_light_state:=true
 ```
+Here is the simulation video on highway using simulator's light state in which the car can navigate through the traffic lights successfully. Click on the thumbnail animated gif to view the video directly on Youtube or click on the hyperlink to download the video on Github.
 
 | Link on Github | Link on Youtube |
 |:--------------:|:---------------:|
