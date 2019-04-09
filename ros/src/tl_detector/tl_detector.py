@@ -12,6 +12,8 @@ import cv2
 import yaml
 import sys
 from scipy.spatial import KDTree
+from timeit import default_timer as timer
+import os
 
 STATE_COUNT_THRESHOLD = 3
 
@@ -55,6 +57,9 @@ class TLDetector(object):
 
         # Check whether to use light state from simulator (argument from command line )
         self.use_simulator_light_state = sys.argv[1] == 'true'
+
+        # Check whether to save camera image for training and testing the model
+        self.save_camera_image = 'true'
 
         rospy.spin()
 
@@ -133,6 +138,13 @@ class TLDetector(object):
                 return False
 
             cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
+
+            # Save camera image if specified
+            if (self.save_camera_image):
+                time_info = timer()
+                filename = os.path.join("./dataset/", "camera_image_" + "%s.jpeg" % time_info)
+                #rospy.loginfo("filename = {}".format(filename))
+                cv2.imwrite(filename, cv_image)
 
             #Get classification
             return self.light_classifier.get_classification(cv_image)
