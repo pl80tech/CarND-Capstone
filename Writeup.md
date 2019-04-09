@@ -71,3 +71,11 @@ This is a defined parameter for specifying as an argument in command line to use
 ```shell
 $ roslaunch launch/styx.launch use_simulator_light_state:=true
 ```
+
+### save_camera_image
+
+This is a defined parameter for specifying as an argument in command line to save camera image for training/testing the model. It is disabled by default and enabled by specifying as below:
+
+```shell
+$ roslaunch launch/styx.launch save_camera_image:=true
+```
