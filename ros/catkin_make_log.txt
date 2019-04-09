@@ -1,0 +1,163 @@
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /home/pl80tech/work/SDCND/CarND-Capstone/ros/devel
+-- Using CMAKE_PREFIX_PATH: /opt/ros/kinetic
+-- This workspace overlays: /opt/ros/kinetic
+-- Found PythonInterp: /usr/bin/python (found version "2.7.12") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/pl80tech/work/SDCND/CarND-Capstone/ros/build/test_results
+-- Found gmock sources under '/usr/src/gmock': gmock will be built
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found gtest sources under '/usr/src/gmock': gtests will be built
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.7.14
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 8 packages in topological order:
+-- ~~  - camera_info_publisher
+-- ~~  - styx
+-- ~~  - styx_msgs
+-- ~~  - twist_controller
+-- ~~  - waypoint_follower
+-- ~~  - waypoint_loader
+-- ~~  - waypoint_updater
+-- ~~  - tl_detector
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'camera_info_publisher'
+-- ==> add_subdirectory(camera_info_publisher)
+-- +++ processing catkin package: 'styx'
+-- ==> add_subdirectory(styx)
+-- +++ processing catkin package: 'styx_msgs'
+-- ==> add_subdirectory(styx_msgs)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- styx_msgs: 4 messages, 0 services
+-- +++ processing catkin package: 'twist_controller'
+-- ==> add_subdirectory(twist_controller)
+-- +++ processing catkin package: 'waypoint_follower'
+-- ==> add_subdirectory(waypoint_follower)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- +++ processing catkin package: 'waypoint_loader'
+-- ==> add_subdirectory(waypoint_loader)
+-- +++ processing catkin package: 'waypoint_updater'
+-- ==> add_subdirectory(waypoint_updater)
+-- +++ processing catkin package: 'tl_detector'
+-- ==> add_subdirectory(tl_detector)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pl80tech/work/SDCND/CarND-Capstone/ros/build
+Scanning dependencies of target std_msgs_generate_messages_lisp
+Scanning dependencies of target _styx_msgs_generate_messages_check_deps_Lane
+Scanning dependencies of target geometry_msgs_generate_messages_lisp
+Scanning dependencies of target sensor_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_lisp
+Scanning dependencies of target _styx_msgs_generate_messages_check_deps_TrafficLight
+Scanning dependencies of target _styx_msgs_generate_messages_check_deps_TrafficLightArray
+Scanning dependencies of target _styx_msgs_generate_messages_check_deps_Waypoint
+[  0%] Built target _styx_msgs_generate_messages_check_deps_Lane
+Scanning dependencies of target std_msgs_generate_messages_eus
+[  0%] Built target _styx_msgs_generate_messages_check_deps_TrafficLightArray
+[  0%] Built target _styx_msgs_generate_messages_check_deps_TrafficLight
+[  0%] Built target _styx_msgs_generate_messages_check_deps_Waypoint
+[  0%] Built target std_msgs_generate_messages_eus
+Scanning dependencies of target sensor_msgs_generate_messages_eus
+Scanning dependencies of target geometry_msgs_generate_messages_eus
+Scanning dependencies of target std_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_nodejs
+Scanning dependencies of target sensor_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+Scanning dependencies of target geometry_msgs_generate_messages_nodejs
+Scanning dependencies of target std_msgs_generate_messages_cpp
+Scanning dependencies of target sensor_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+Scanning dependencies of target geometry_msgs_generate_messages_cpp
+Scanning dependencies of target std_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_cpp
+Scanning dependencies of target geometry_msgs_generate_messages_py
+Scanning dependencies of target sensor_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_py
+Scanning dependencies of target styx_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_py
+Scanning dependencies of target styx_msgs_generate_messages_eus
+[  3%] Generating Lisp code from styx_msgs/Waypoint.msg
+Scanning dependencies of target styx_msgs_generate_messages_nodejs
+Scanning dependencies of target styx_msgs_generate_messages_cpp
+[  7%] Generating EusLisp code from styx_msgs/Waypoint.msg
+[ 11%] Generating Javascript code from styx_msgs/Waypoint.msg
+[ 14%] Generating C++ code from styx_msgs/Waypoint.msg
+[ 18%] Generating Lisp code from styx_msgs/TrafficLight.msg
+[ 22%] Generating Javascript code from styx_msgs/TrafficLight.msg
+[ 25%] Generating EusLisp code from styx_msgs/TrafficLight.msg
+[ 29%] Generating Lisp code from styx_msgs/Lane.msg
+[ 33%] Generating Javascript code from styx_msgs/Lane.msg
+[ 37%] Generating EusLisp code from styx_msgs/Lane.msg
+[ 40%] Generating Lisp code from styx_msgs/TrafficLightArray.msg
+[ 44%] Generating C++ code from styx_msgs/TrafficLight.msg
+[ 48%] Generating Javascript code from styx_msgs/TrafficLightArray.msg
+[ 48%] Built target styx_msgs_generate_messages_lisp
+[ 51%] Generating EusLisp code from styx_msgs/TrafficLightArray.msg
+Scanning dependencies of target styx_msgs_generate_messages_py
+[ 55%] Generating Python from MSG styx_msgs/Waypoint
+[ 55%] Built target styx_msgs_generate_messages_nodejs
+[ 59%] Generating EusLisp manifest code for styx_msgs
+[ 62%] Generating C++ code from styx_msgs/Lane.msg
+[ 66%] Generating Python from MSG styx_msgs/TrafficLight
+[ 70%] Generating C++ code from styx_msgs/TrafficLightArray.msg
+[ 74%] Generating Python from MSG styx_msgs/Lane
+[ 77%] Generating Python from MSG styx_msgs/TrafficLightArray
+[ 77%] Built target styx_msgs_generate_messages_cpp
+Scanning dependencies of target libwaypoint_follower
+[ 81%] Generating Python msg __init__.py for styx_msgs
+[ 85%] Building CXX object waypoint_follower/CMakeFiles/libwaypoint_follower.dir/lib/libwaypoint_follower.cpp.o
+[ 85%] Built target styx_msgs_generate_messages_py
+[ 85%] Built target styx_msgs_generate_messages_eus
+Scanning dependencies of target styx_msgs_generate_messages
+[ 85%] Built target styx_msgs_generate_messages
+[ 88%] Linking CXX shared library /home/pl80tech/work/SDCND/CarND-Capstone/ros/devel/lib/liblibwaypoint_follower.so
+[ 88%] Built target libwaypoint_follower
+Scanning dependencies of target pure_pursuit
+[ 92%] Building CXX object waypoint_follower/CMakeFiles/pure_pursuit.dir/src/pure_pursuit_core.cpp.o
+[ 96%] Building CXX object waypoint_follower/CMakeFiles/pure_pursuit.dir/src/pure_pursuit.cpp.o
+[100%] Linking CXX executable /home/pl80tech/work/SDCND/CarND-Capstone/ros/devel/lib/waypoint_follower/pure_pursuit
+[100%] Built target pure_pursuit
+Base path: /home/pl80tech/work/SDCND/CarND-Capstone/ros
+Source space: /home/pl80tech/work/SDCND/CarND-Capstone/ros/src
+Build space: /home/pl80tech/work/SDCND/CarND-Capstone/ros/build
+Devel space: /home/pl80tech/work/SDCND/CarND-Capstone/ros/devel
+Install space: /home/pl80tech/work/SDCND/CarND-Capstone/ros/install
+####
+#### Running command: "cmake /home/pl80tech/work/SDCND/CarND-Capstone/ros/src -DCATKIN_DEVEL_PREFIX=/home/pl80tech/work/SDCND/CarND-Capstone/ros/devel -DCMAKE_INSTALL_PREFIX=/home/pl80tech/work/SDCND/CarND-Capstone/ros/install -G Unix Makefiles" in "/home/pl80tech/work/SDCND/CarND-Capstone/ros/build"
+####
+####
+#### Running command: "make -j4 -l4" in "/home/pl80tech/work/SDCND/CarND-Capstone/ros/build"
+####
