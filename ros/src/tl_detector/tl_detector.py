@@ -59,7 +59,7 @@ class TLDetector(object):
         self.use_simulator_light_state = sys.argv[1] == 'true'
 
         # Check whether to save camera image for training and testing the model
-        self.save_camera_image = 'true'
+        self.save_camera_image = sys.argv[2] == 'true'
 
         rospy.spin()
 

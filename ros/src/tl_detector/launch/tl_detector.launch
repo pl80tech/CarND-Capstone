@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="use_simulator_light_state" default="false"/>	
-    <node pkg="tl_detector" type="tl_detector.py" name="tl_detector" output="screen" cwd="node" args="$(arg use_simulator_light_state)"/>
+    <arg name="save_camera_image" default="false"/>
+    <node pkg="tl_detector" type="tl_detector.py" name="tl_detector" output="screen" cwd="node" args="$(arg use_simulator_light_state) $(arg save_camera_image)"/>
 </launch>

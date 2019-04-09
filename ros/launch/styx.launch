@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="use_simulator_light_state" default="false"/>
+    <arg name="save_camera_image" default="false"/>
     <!-- Simulator Bridge -->
     <include file="$(find styx)/launch/server.launch" />
 
@@ -19,6 +20,7 @@
     <!--Traffic Light Detector Node -->
     <include file="$(find tl_detector)/launch/tl_detector.launch">
         <arg name="use_simulator_light_state" value="$(arg use_simulator_light_state)"/>
+        <arg name="save_camera_image" value="$(arg save_camera_image)"/>
     </include>
 
     <!--Traffic Light Locations and Camera Config -->
