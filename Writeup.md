@@ -50,6 +50,8 @@ Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1969/view) wh
 ---
 ## Code compilation
 
+The implemented code can be compiled successfully by catkin_make. Refer to [/ros/catkin_make_log.txt](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/catkin_make_log.txt) for the detail build log.
+
 ---
 ## Implementation
 
