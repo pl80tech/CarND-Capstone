@@ -22,6 +22,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 [//]: # (Image References)
 
 [architecture]: ./imgs/architecture.png "System Architecture Diagram"
+[highway_sim_light_state]: ./video/highway_use_simulator_light_state.gif "Driving on highway using simulator light state"
 
 ---
 ## About Capstone Project
@@ -73,6 +74,10 @@ This is a defined parameter for specifying as an argument in command line to use
 ```shell
 $ roslaunch launch/styx.launch use_simulator_light_state:=true
 ```
+
+| Link on Github | Link on Youtube |
+|:--------------:|:---------------:|
+| [highway_use_simulator_light_state.mp4](https://github.com/pl80tech/CarND-Capstone/blob/master/video/highway_use_simulator_light_state.mp4) | [![alt text][highway_sim_light_state]](https://www.youtube.com/watch?v=5-mSSGskBSc) |
 
 ### save_camera_image
 
