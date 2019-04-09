@@ -17,6 +17,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 	* [Traffic light detection node](#Traffic-light-detection-node)
 	* [Waypoint updater node](#Waypoint-updater-node)
 	* [DBW node](#DBW-node)
+* [Notes](#Notes)
 
 [//]: # (Image References)
 
@@ -59,3 +60,14 @@ Here are the [Rubric Points](https://review.udacity.com/#!/rubrics/1969/view) wh
 ### Waypoint updater node
 
 ### DBW node
+
+---
+## Notes
+
+### use_simulator_light_state
+
+This is a defined parameter for specifying as an argument in command line to use the light state from simulator instead of detecting and classifying directly from camera image (for testing/debugging purpose). It is disabled by default and enabled by specifying as below:
+
+```shell
+$ roslaunch launch/styx.launch use_simulator_light_state:=true
+```
