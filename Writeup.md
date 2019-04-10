@@ -76,9 +76,9 @@ $ roslaunch launch/styx.launch use_simulator_light_state:=true
 ```
 Here is the simulation video on highway using simulator's light state in which the car can navigate through the traffic lights successfully. Click on the thumbnail animated gif to view the video directly on Youtube or click on the hyperlink to download the video on Github.
 
-| Link on Github | Link on Youtube |
+| Link on Github | [highway_use_simulator_light_state.mp4](https://github.com/pl80tech/CarND-Capstone/blob/master/video/highway_use_simulator_light_state.mp4) |
 |:--------------:|:---------------:|
-| [highway_use_simulator_light_state.mp4](https://github.com/pl80tech/CarND-Capstone/blob/master/video/highway_use_simulator_light_state.mp4) | [![alt text][highway_sim_light_state]](https://www.youtube.com/watch?v=5-mSSGskBSc) |
+| Link on Youtube | [![alt text][highway_sim_light_state]](https://www.youtube.com/watch?v=5-mSSGskBSc) |
 
 ### save_camera_image
 
