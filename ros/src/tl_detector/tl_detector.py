@@ -61,6 +61,9 @@ class TLDetector(object):
         # Check whether to save camera image for training and testing the model
         self.save_camera_image = sys.argv[2] == 'true'
 
+        # Save camera image and light state to csv file
+        self.csvfile = open("lightstate.csv", 'w')
+
         rospy.spin()
 
     def pose_cb(self, msg):
@@ -145,6 +148,9 @@ class TLDetector(object):
                 filename = os.path.join("./dataset/", "camera_image_" + "%s.jpg" % time_info)
                 #rospy.loginfo("filename = {}".format(filename))
                 cv2.imwrite(filename, cv_image)
+                row = "{},{}\n".format(filename, light.state)
+                self.csvfile.write(row)
+                rospy.loginfo("light.state = {}".format(light.state))
 
             #Get classification
             return self.light_classifier.get_classification(cv_image)
