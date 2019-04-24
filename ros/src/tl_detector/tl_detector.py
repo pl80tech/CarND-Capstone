@@ -142,7 +142,7 @@ class TLDetector(object):
             # Save camera image if specified
             if (self.save_camera_image):
                 time_info = timer()
-                filename = os.path.join("./dataset/", "camera_image_" + "%s.jpeg" % time_info)
+                filename = os.path.join("./dataset/", "camera_image_" + "%s.jpg" % time_info)
                 #rospy.loginfo("filename = {}".format(filename))
                 cv2.imwrite(filename, cv_image)
 
