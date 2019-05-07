@@ -24,6 +24,9 @@ from utils import label_map_util
 
 from utils import visualization_utils as vis_util
 
+# Size, in inches, of the output images.
+IMAGE_SIZE = (12, 8)
+
 def load_image_into_numpy_array(image):
   (im_width, im_height) = image.size
   return np.array(image.getdata()).reshape(
@@ -145,29 +148,3 @@ def detect_and_save_image_model(image_path, save_path, detection_graph, category
   image_np_rgb = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
   cv2.imwrite(save_path, image_np_rgb)
 
-# Size, in inches, of the output images.
-IMAGE_SIZE = (12, 8)
-
-# Path to the image folder
-PATH_TO_DATASET_DIR = 'dataset/'
-PATH_TO_DATASET_INF_DIR = 'dataset_inference/'
-
-# Number of test images
-n_image = 3
-
-# Path to the test images (from simulator) and inference images with detected objects
-DATASET_PATHS = []
-DATASET_INF_PATHS = []
-for i in range(1, n_image + 1):
-  dataset_path = os.path.join(PATH_TO_DATASET_DIR, 'image{}.jpg'.format(i))
-  DATASET_PATHS.append(dataset_path)
-  inf_path = os.path.join(PATH_TO_DATASET_INF_DIR, 'image{}.jpg'.format(i))
-  DATASET_INF_PATHS.append(inf_path)
-
-# Detect and save inference images with model#3 (faster_rcnn_resnet101_coco_2018_01_28)
-model = 3
-detection_graph, category_index = get_model_info(model)
-for i in range(len(DATASET_PATHS)):
-  image_path = DATASET_PATHS[i]
-  inf_image_path = DATASET_INF_PATHS[i]
-  detect_and_save_image_model(image_path, inf_image_path, detection_graph, category_index)
