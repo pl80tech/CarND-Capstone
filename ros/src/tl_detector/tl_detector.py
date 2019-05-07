@@ -14,6 +14,7 @@ import sys
 from scipy.spatial import KDTree
 from timeit import default_timer as timer
 import os
+import traffic_light_detection as tl_detection
 
 STATE_COUNT_THRESHOLD = 3
 
@@ -63,6 +64,12 @@ class TLDetector(object):
 
         # Save camera image and light state to csv file
         self.csvfile = open("lightstate.csv", 'w')
+
+        # Get detection graph and category index of model#3 (faster_rcnn_resnet101_coco_2018_01_28)
+        model = 3
+        self.detection_graph = None
+        self.category_index = None
+        self.detection_graph, self.category_index = tl_detection.get_model_info(model)
 
         rospy.spin()
 
@@ -151,6 +158,11 @@ class TLDetector(object):
                 row = "{},{}\n".format(filename, light.state)
                 self.csvfile.write(row)
                 rospy.loginfo("light.state = {}".format(light.state))
+
+                # Detect and save inference images with model#3 (faster_rcnn_resnet101_coco_2018_01_28)
+                image_path = filename
+                inf_image_path = os.path.join("./dataset_inference/", "camera_image_inf_" + "%s.jpg" % time_info)
+                tl_detection.detect_and_save_image_model(image_path, inf_image_path, self.detection_graph, self.category_index)
 
             #Get classification
             return self.light_classifier.get_classification(cv_image)
