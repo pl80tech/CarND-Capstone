@@ -164,7 +164,7 @@ class TLDetector(object):
                 rospy.loginfo("light.state = {}".format(light.state))
 
                 # Detect and save inference images with model#3 (faster_rcnn_resnet101_coco_2018_01_28)
-                if (save_inference_image):
+                if (self.save_inference_image):
                     image_path = filename
                     inf_image_path = os.path.join("./dataset_inference/", "camera_image_inf_" + "%s.jpg" % time_info)
                     tl_detection.detect_and_save_image_model(image_path, inf_image_path, self.detection_graph, self.category_index)
