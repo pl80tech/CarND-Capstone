@@ -1,3 +1,4 @@
+# Import necessary packages
 import numpy as np
 import os
 import six.moves.urllib as urllib
@@ -27,11 +28,13 @@ from utils import visualization_utils as vis_util
 # Size, in inches, of the output images.
 IMAGE_SIZE = (12, 8)
 
+# Helper function to load image to numpy array for further processing
 def load_image_into_numpy_array(image):
   (im_width, im_height) = image.size
   return np.array(image.getdata()).reshape(
       (im_height, im_width, 3)).astype(np.uint8)
 
+# Helper function to detect objects in single image
 def run_inference_for_single_image(image, graph):
   with graph.as_default():
     with tf.Session() as sess:
