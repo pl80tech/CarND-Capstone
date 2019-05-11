@@ -21,6 +21,9 @@ def main():
     if dataset == 1:
         gid = '1NJ8mDGhX16NksFNfpKvPlEt4UVIqhIL3'
         filename = "dataset.zip"
+    if dataset == 2:
+        gid = '1FfpetULTpRBx62mr23IZ7dCdj7lQw_7o'
+        filename = "dataset2.zip"
     else:
         print("Not available yet. To be added")
 
