@@ -166,3 +166,16 @@ def get_final_model_info(path_to_graph, path_to_label):
     category_index = label_map_util.create_category_index_from_labelmap(path_to_label, use_display_name=True)
 
     return detection_graph, category_index
+
+# Detect traffic light with specified model (graph and label index)
+def get_detected_objects(image, detection_graph, category_index):
+  # Change image from BGR to RGB
+  image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+  # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+  image_np_expanded = np.expand_dims(image_rgb, axis=0)
+
+  # Get inference of input image with detected objects
+  output_dict = run_inference_for_single_image(image_np_expanded, detection_graph)
+
+  return output_dict
