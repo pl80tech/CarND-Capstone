@@ -151,3 +151,18 @@ def detect_and_save_image_model(image_path, save_path, detection_graph, category
   image_np_rgb = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
   cv2.imwrite(save_path, image_np_rgb)
 
+# Get detection graph & category index from specified model
+def get_final_model_info(path_to_graph, path_to_label):
+    # Load frozen Tensorflow model into memory
+    detection_graph = tf.Graph()
+    with detection_graph.as_default():
+        od_graph_def = tf.GraphDef()
+        with tf.gfile.GFile(path_to_graph, 'rb') as fid:
+            serialized_graph = fid.read()
+            od_graph_def.ParseFromString(serialized_graph)
+            tf.import_graph_def(od_graph_def, name='')
+
+    # Load label map
+    category_index = label_map_util.create_category_index_from_labelmap(path_to_label, use_display_name=True)
+
+    return detection_graph, category_index
