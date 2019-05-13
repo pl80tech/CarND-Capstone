@@ -21,4 +21,9 @@ class TLClassifier(object):
 
         """
         #TODO implement light color prediction
+        output_dict = tl_detection.get_detected_objects(image, self.detection_graph, self.category_index)
+        classes = output_dict['detection_classes']
+        scores = output_dict['detection_scores']
+        detected_class = self.category_index[classes[0]]['name']
+
         return TrafficLight.UNKNOWN
