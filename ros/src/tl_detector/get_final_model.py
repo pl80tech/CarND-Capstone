@@ -30,8 +30,8 @@ def main():
     print("--------- Download completed -----------")
     
     # Copy the downloaded graph to specified path
-    print("Move the downloaded graph to specified path " + filename)
-    subprocess.call("mv " + 'model/final/', shell=True)
+    print("Move the downloaded graph to specified path")
+    subprocess.call("mv " + filename + ' model/final/' + filename, shell=True)
 
 if __name__ == "__main__":
     main()
