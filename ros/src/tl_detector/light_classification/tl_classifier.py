@@ -19,6 +19,7 @@ class TLClassifier(object):
 
         # Initial value
         self.detected_light = TrafficLight.UNKNOWN
+        self.detection_threshold = 0.5
 
     def get_classification(self, image):
         """Determines the color of the traffic light in the image
@@ -36,16 +37,17 @@ class TLClassifier(object):
         end_time = time.time()
         rospy.loginfo("Processing time for image inference is {} (s)".format(end_time - start_time))
 
-        detected_class = self.category_index[classes[0]]['name']
-        rospy.loginfo("Detected traffic light is {} with highest score = {}".format(detected_class, scores[0]))
+        if (scores[0] > self.detection_threshold):
+            detected_class = self.category_index[classes[0]]['name']
+            rospy.loginfo("Detected traffic light is {} with highest score = {}".format(detected_class, scores[0]))
 
-        if detected_class == 'RED':
-            self.detected_light = TrafficLight.RED
-        elif detected_class == 'YELLOW':
-            self.detected_light = TrafficLight.YELLOW
-        elif detected_class == 'GREEN':
-            self.detected_light = TrafficLight.GREEN
-        else:
-            self.detected_light = TrafficLight.UNKNOWN
+            if detected_class == 'RED':
+                self.detected_light = TrafficLight.RED
+            elif detected_class == 'YELLOW':
+                self.detected_light = TrafficLight.YELLOW
+            elif detected_class == 'GREEN':
+                self.detected_light = TrafficLight.GREEN
+            else:
+                self.detected_light = TrafficLight.UNKNOWN
 
         return self.detected_light
