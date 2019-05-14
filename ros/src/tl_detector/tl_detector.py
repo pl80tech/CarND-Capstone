@@ -169,8 +169,11 @@ class TLDetector(object):
                     inf_image_path = os.path.join("./dataset_inference/", "camera_image_inf_" + "%s.jpg" % time_info)
                     tl_detection.detect_and_save_image_model(image_path, inf_image_path, self.detection_graph, self.category_index)
 
-            #Get classification
-            return self.light_classifier.get_classification(cv_image)
+            #Get and return classification result
+            detected_light = self.light_classifier.get_classification(cv_image)
+            rospy.loginfo("Detected traffic light = {}".format(detected_light))
+
+            return detected_light
 
     def process_traffic_lights(self):
         """Finds closest visible traffic light, if one exists, and determines its
