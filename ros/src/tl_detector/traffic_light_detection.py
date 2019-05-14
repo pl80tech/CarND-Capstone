@@ -81,6 +81,39 @@ def run_inference_for_single_image(image, graph):
         output_dict['detection_masks'] = output_dict['detection_masks'][0]
   return output_dict
 
+# Get session for image inference
+def get_sess_for_inference(detection_graph):
+  config = tf.ConfigProto()
+  config.gpu_options.allow_growth = True
+  sess = tf.Session(graph=detection_graph, config=config)
+
+  return sess
+
+# Get inference result
+def get_inference_of_image(image, detection_graph, sess):
+  # Change image from BGR to RGB
+  image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+  # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+  image_np_expanded = np.expand_dims(image_rgb, axis=0)
+
+  # Get tensor from graph
+  image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
+  detection_boxes = detection_graph.get_tensor_by_name('detection_boxes:0')
+  detection_scores = detection_graph.get_tensor_by_name('detection_scores:0')
+  detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
+  num_detections = detection_graph.get_tensor_by_name('num_detections:0')
+
+  (boxes, scores, classes, num) = sess.run(
+            [detection_boxes, detection_scores,
+             detection_classes, num_detections],
+            feed_dict={image_tensor: image_np_expanded})
+
+  scores = np.squeeze(scores)
+  classes = np.squeeze(classes).astype(np.int32)
+
+  return scores, classes
+
 # Get detection graph & category index from specified model
 def get_model_info(model):
     # What model to download.
