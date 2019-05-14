@@ -154,6 +154,8 @@ class TLDetector(object):
                 self.prev_light_loc = None
                 return self.last_state
 
+            rospy.loginfo("--------------------------------------------")
+
             # Skip processing the classification
             self.counter += 1
             if self.counter % 2 == 0:

@@ -30,7 +30,6 @@ class TLClassifier(object):
         test_scores, test_classes = tl_detection.get_inference_of_image(test_image, self.detection_graph, self.sess)
         end_time = time.time()
         rospy.loginfo("Processing time for 1st inference is {} (s)".format(end_time - start_time))
-        rospy.loginfo("--------------------------------------------")
 
     def get_classification(self, image):
         """Determines the color of the traffic light in the image
