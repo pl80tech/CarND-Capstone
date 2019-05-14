@@ -75,6 +75,9 @@ class TLDetector(object):
             self.category_index = None
             self.detection_graph, self.category_index = tl_detection.get_model_info(model)
 
+        # Counter to skip processing camera image
+        self.counter = 0
+
         rospy.spin()
 
     def pose_cb(self, msg):
@@ -149,6 +152,12 @@ class TLDetector(object):
         else:
             if(not self.has_image):
                 self.prev_light_loc = None
+                return False
+
+            # Skip processing the classification
+            self.counter += 1
+            if self.counter % 2 == 0:
+                rospy.loginfo("counter = {} --> skip processing the classification".format(self.counter))
                 return False
 
             cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
