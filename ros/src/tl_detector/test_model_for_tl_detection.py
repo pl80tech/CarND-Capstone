@@ -11,6 +11,7 @@ import traffic_light_detection as tl_detection
 import time
 import sys
 import cv2
+import os
 
 # Main function
 def main():
@@ -26,20 +27,28 @@ def main():
     # Get session for classification
     sess = tl_detection.get_sess_for_inference(detection_graph)
 
-    # Load image
-    image = cv2.imread(imagepath)
+    # Get image list from specified path
+    images = os.listdir(imagepath)
 
-    # Get inference result
-    start_time = time.time()
-    scores, classes = tl_detection.get_inference_of_image(image, detection_graph, sess)
-    end_time = time.time()
+    # Load and process each image in the list
+    for fname in images:
+        print("--------------------")
+        print("processing image: " + fname)
 
-    # Output processing time for inference
-    print("processing time = " + str(end_time - start_time))
+        # Load image
+        image = cv2.imread(imagepath + fname)
 
-    # Output inference result
-    detected_class = category_index[classes[0]]['name']
-    print("Object " + detected_class + " is detected with highest score " + str(scores[0]))
+        # Get inference result
+        start_time = time.time()
+        scores, classes = tl_detection.get_inference_of_image(image, detection_graph, sess)
+        end_time = time.time()
+
+        # Output processing time for inference
+        print("processing time = " + str(end_time - start_time))
+
+        # Output inference result
+        detected_class = category_index[classes[0]]['name']
+        print("Object " + detected_class + " is detected with highest score " + str(scores[0]))
 
 if __name__ == "__main__":
     main()
