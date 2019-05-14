@@ -2,6 +2,7 @@ from styx_msgs.msg import TrafficLight
 import traffic_light_detection as tl_detection
 import rospy
 import time
+import cv2
 
 class TLClassifier(object):
     def __init__(self):
@@ -20,6 +21,16 @@ class TLClassifier(object):
         # Initial value
         self.detected_light = TrafficLight.UNKNOWN
         self.detection_threshold = 0.5
+
+        # Run session to detect a test image
+        # Just a temporary process to save time for image inference of actual camera images
+        # since 1st inference takes more time than next inferences
+        test_image = cv2.imread('data/test.jpg')
+        start_time = time.time()
+        test_scores, test_classes = tl_detection.get_inference_of_image(test_image, self.detection_graph, self.sess)
+        end_time = time.time()
+        rospy.loginfo("Processing time for 1st inference is {} (s)".format(end_time - start_time))
+        rospy.loginfo("--------------------------------------------")
 
     def get_classification(self, image):
         """Determines the color of the traffic light in the image
