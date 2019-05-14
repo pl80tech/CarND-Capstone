@@ -138,7 +138,7 @@ def get_model_info(model):
     PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
     
     # Download Model
-    if not os.path.isfile(MODEL_FILE):
+    if not (os.path.isfile(MODEL_FILE) or os.path.isdir(MODEL_NAME)):
         #print("model file " + MODEL_FILE + " has not been downloaded yet. Will download and extract here")
         opener = urllib.request.URLopener()
         opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
