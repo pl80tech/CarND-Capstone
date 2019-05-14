@@ -13,6 +13,10 @@ class TLClassifier(object):
         self.detection_graph, self.category_index = tl_detection.get_final_model_info(self.path_to_graph, self.path_to_label)
         rospy.loginfo("Completed loading the detection graph and category index from specified model")
 
+        # Create session for running tensorflow model
+        self.sess = None
+        self.sess = tl_detection.get_sess_for_inference(self.detection_graph)
+
         # Initial value
         self.detected_light = TrafficLight.UNKNOWN
 
@@ -28,12 +32,10 @@ class TLClassifier(object):
         """
         #TODO implement light color prediction
         start_time = time.time()
-        output_dict = tl_detection.get_detected_objects(image, self.detection_graph, self.category_index)
+        scores, classes = tl_detection.get_inference_of_image(image, self.detection_graph, self.sess)
         end_time = time.time()
         rospy.loginfo("Processing time for image inference is {} (s)".format(end_time - start_time))
 
-        classes = output_dict['detection_classes']
-        scores = output_dict['detection_scores']
         detected_class = self.category_index[classes[0]]['name']
         rospy.loginfo("Detected traffic light is {} with highest score = {}".format(detected_class, scores[0]))
 
