@@ -75,8 +75,9 @@ class TLDetector(object):
             self.category_index = None
             self.detection_graph, self.category_index = tl_detection.get_model_info(model)
 
-        # Counter to skip processing camera image
+        # Parameters to skip processing camera image
         self.counter = 0
+        self.skip_interval = 2
 
         rospy.spin()
 
@@ -158,7 +159,7 @@ class TLDetector(object):
 
             # Skip processing the classification
             self.counter += 1
-            if self.counter % 2 == 0:
+            if self.counter % self.skip_interval == 0:
                 rospy.loginfo("counter = {} --> skip processing the classification".format(self.counter))
                 return self.last_state
 
