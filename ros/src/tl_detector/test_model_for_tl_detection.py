@@ -23,20 +23,21 @@ def main():
     # Get model info
     detection_graph, category_index = tl_detection.get_model_info(model)
 
+    # Get session for classification
+    sess = tl_detection.get_sess_for_inference(detection_graph)
+
     # Load image
     image = cv2.imread(imagepath)
 
     # Get inference result
     start_time = time.time()
-    output_dict = tl_detection.get_detected_objects(image, detection_graph, category_index)
+    scores, classes = tl_detection.get_inference_of_image(image, detection_graph, sess)
     end_time = time.time()
 
     # Output processing time for inference
     print("processing time = " + str(end_time - start_time))
 
     # Output inference result
-    classes = output_dict['detection_classes']
-    scores = output_dict['detection_scores']
     detected_class = category_index[classes[0]]['name']
     print("Object " + detected_class + " is detected with highest score " + str(scores[0]))
 
