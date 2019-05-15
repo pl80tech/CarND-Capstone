@@ -3,12 +3,16 @@ import traffic_light_detection as tl_detection
 import rospy
 import time
 import cv2
+import yaml
 
 class TLClassifier(object):
     def __init__(self):
         #TODO load classifier
-        self.path_to_graph = 'model/final/frozen_inference_graph.pb'
-        self.path_to_label = 'model/final/tl_detect_label_map.pbtxt'
+        config_string = rospy.get_param("/traffic_light_config")
+        config = yaml.load(config_string)
+        self.path_to_graph = config['path_to_graph']
+        self.path_to_label = config['path_to_label']
+
         self.detection_graph = None
         self.category_index = None
         self.detection_graph, self.category_index = tl_detection.get_final_model_info(self.path_to_graph, self.path_to_label)
