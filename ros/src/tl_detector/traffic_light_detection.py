@@ -11,7 +11,7 @@ import cv2
 from distutils.version import StrictVersion
 from collections import defaultdict
 from io import StringIO
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 from PIL import Image
 
 # This is needed since the notebook is stored in the object_detection folder.
@@ -26,7 +26,7 @@ from utils import label_map_util
 from utils import visualization_utils as vis_util
 
 # Size, in inches, of the output images.
-IMAGE_SIZE = (12, 8)
+#IMAGE_SIZE = (12, 8)
 
 # Helper function to load image to numpy array for further processing
 def load_image_into_numpy_array(image):
@@ -183,7 +183,7 @@ def detect_and_save_image_model(image_path, save_path, detection_graph, category
       instance_masks=output_dict.get('detection_masks'),
       use_normalized_coordinates=True,
       line_thickness=4)
-  plt.figure(figsize=IMAGE_SIZE)
+  #plt.figure(figsize=IMAGE_SIZE)
   image_np_rgb = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
   cv2.imwrite(save_path, image_np_rgb)
 
