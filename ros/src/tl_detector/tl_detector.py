@@ -159,8 +159,9 @@ class TLDetector(object):
 
             # Skip processing the classification
             self.counter += 1
+            rospy.loginfo("counter = {}".format(self.counter))
             if self.counter % self.skip_interval == 0:
-                rospy.loginfo("counter = {} --> skip processing the classification".format(self.counter))
+                rospy.loginfo("skip processing the classification")
                 return self.last_state
 
             cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
