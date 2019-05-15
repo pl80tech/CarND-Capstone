@@ -59,5 +59,7 @@ class TLClassifier(object):
                 self.detected_light = TrafficLight.GREEN
             else:
                 self.detected_light = TrafficLight.UNKNOWN
+        else:
+            rospy.loginfo("No traffic light is detected. Keep the last light state")
 
         return self.detected_light
