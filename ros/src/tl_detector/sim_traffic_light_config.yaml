@@ -11,3 +11,5 @@ stop_line_positions:
     - [161.76, 2303.82]
     - [351.84, 1574.65]
 is_site: False
+path_to_graph: 'model/final/frozen_inference_graph.pb'
+path_to_label: 'model/final/tl_detect_label_map.pbtxt'
