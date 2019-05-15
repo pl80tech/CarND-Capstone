@@ -183,7 +183,7 @@ class TLDetector(object):
 
             #Get and return classification result
             detected_light = self.light_classifier.get_classification(cv_image)
-            rospy.loginfo("Detected traffic light = {}".format(detected_light))
+            rospy.loginfo("Detected traffic light = {}, Simulator's light state = {}".format(detected_light, light.state))
 
             return detected_light
 
