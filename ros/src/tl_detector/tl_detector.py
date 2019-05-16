@@ -80,6 +80,7 @@ class TLDetector(object):
         config_file = open("tl_classification_config.yaml")
         config_params = yaml.load(config_file)
         self.skip_interval = config_params['skip_interval']
+        config_file.close()
 
         rospy.spin()
 

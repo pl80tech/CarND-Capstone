@@ -13,6 +13,7 @@ class TLClassifier(object):
         self.path_to_graph = config['path_to_graph']
         self.path_to_label = config['path_to_label']
         self.detection_threshold = config['detection_threshold']
+        config_file.close()
 
         self.detection_graph = None
         self.category_index = None
