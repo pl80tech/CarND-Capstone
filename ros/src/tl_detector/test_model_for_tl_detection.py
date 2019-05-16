@@ -22,7 +22,14 @@ def main():
     imagepath = sys.argv[2]
 
     # Get model info
-    detection_graph, category_index = tl_detection.get_model_info(model)
+    if (model == 0):
+        # Retrained/final model
+        path_to_graph = 'model/final/frozen_inference_graph.pb'
+        path_to_label = 'model/final/tl_detect_label_map.pbtxt'
+        detection_graph, category_index = tl_detection.get_final_model_info(path_to_graph, path_to_label)
+    else:
+        # Existed/Pre-trained model
+        detection_graph, category_index = tl_detection.get_model_info(model)
 
     # Get session for classification
     sess = tl_detection.get_sess_for_inference(detection_graph)
