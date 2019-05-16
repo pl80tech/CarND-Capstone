@@ -23,7 +23,7 @@ from utils import ops as utils_ops
 
 from utils import label_map_util
 
-from utils import visualization_utils as vis_util
+#from utils import visualization_utils as vis_util
 
 # Size, in inches, of the output images.
 #IMAGE_SIZE = (12, 8)
@@ -176,6 +176,7 @@ def detect_and_save_image_model(image_path, save_path, detection_graph, category
   # Actual detection.
   output_dict = run_inference_for_single_image(image_np_expanded, detection_graph)
   # Visualization of the results of a detection.
+  '''
   vis_util.visualize_boxes_and_labels_on_image_array(
       image_np,
       output_dict['detection_boxes'],
@@ -185,6 +186,7 @@ def detect_and_save_image_model(image_path, save_path, detection_graph, category
       instance_masks=output_dict.get('detection_masks'),
       use_normalized_coordinates=True,
       line_thickness=4)
+  '''
   #plt.figure(figsize=IMAGE_SIZE)
   image_np_rgb = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
   cv2.imwrite(save_path, image_np_rgb)
