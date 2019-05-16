@@ -12,6 +12,7 @@ import time
 import sys
 import cv2
 import os
+import tensorflow as tf
 
 # Main function
 def main():
@@ -58,4 +59,5 @@ def main():
         print("Object " + detected_class + " is detected with highest score " + str(scores[0]))
 
 if __name__ == "__main__":
+    print(tf.__version__)
     main()
