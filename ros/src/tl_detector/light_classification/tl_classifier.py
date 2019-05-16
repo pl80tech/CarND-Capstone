@@ -8,8 +8,8 @@ import yaml
 class TLClassifier(object):
     def __init__(self):
         #TODO load classifier
-        config_string = rospy.get_param("/traffic_light_config")
-        config = yaml.load(config_string)
+        config_file = open("tl_classification_config.yaml")
+        config = yaml.load(config_file)
         self.path_to_graph = config['path_to_graph']
         self.path_to_label = config['path_to_label']
 

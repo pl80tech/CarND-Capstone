@@ -1,0 +1,2 @@
+path_to_graph: 'model/final/frozen_inference_graph.pb'
+path_to_label: 'model/final/tl_detect_label_map.pbtxt'
