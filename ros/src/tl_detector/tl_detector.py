@@ -77,7 +77,9 @@ class TLDetector(object):
 
         # Parameters to skip processing camera image
         self.counter = 0
-        self.skip_interval = 2
+        config_file = open("tl_classification_config.yaml")
+        config_params = yaml.load(config_file)
+        self.skip_interval = config_params['skip_interval']
 
         rospy.spin()
 
