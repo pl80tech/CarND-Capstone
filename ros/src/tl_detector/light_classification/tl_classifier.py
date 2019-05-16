@@ -12,6 +12,7 @@ class TLClassifier(object):
         config = yaml.load(config_file)
         self.path_to_graph = config['path_to_graph']
         self.path_to_label = config['path_to_label']
+        self.detection_threshold = config['detection_threshold']
 
         self.detection_graph = None
         self.category_index = None
@@ -24,7 +25,6 @@ class TLClassifier(object):
 
         # Initial value
         self.detected_light = TrafficLight.UNKNOWN
-        self.detection_threshold = 0.5
 
         # Run session to detect a test image
         # Just a temporary process to save time for image inference of actual camera images
