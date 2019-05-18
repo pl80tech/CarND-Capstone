@@ -55,6 +55,7 @@ class TLDetector(object):
         self.last_state = TrafficLight.UNKNOWN
         self.last_wp = -1
         self.state_count = 0
+        self.detected_light = TrafficLight.UNKNOWN
 
         # Check whether to use light state from simulator (argument from command line )
         self.use_simulator_light_state = sys.argv[1] == 'true'
@@ -166,7 +167,7 @@ class TLDetector(object):
             rospy.loginfo("counter = {}".format(self.counter))
             if self.counter % self.skip_interval != 1:
                 rospy.loginfo("skip processing the classification")
-                return self.last_state
+                return self.detected_light
 
             cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
 
@@ -187,10 +188,10 @@ class TLDetector(object):
                     tl_detection.detect_and_save_image_model(image_path, inf_image_path, self.detection_graph, self.category_index)
 
             #Get and return classification result
-            detected_light = self.light_classifier.get_classification(cv_image)
-            rospy.loginfo("Detected traffic light = {}, Simulator's light state = {}".format(detected_light, light.state))
+            self.detected_light = self.light_classifier.get_classification(cv_image)
+            rospy.loginfo("Detected traffic light = {}, Simulator's light state = {}".format(self.detected_light, light.state))
 
-            return detected_light
+            return self.detected_light
 
     def process_traffic_lights(self):
         """Finds closest visible traffic light, if one exists, and determines its
@@ -224,6 +225,7 @@ class TLDetector(object):
 
         if closest_light:
             state = self.get_light_state(closest_light)
+            rospy.loginfo("Classification result = {}".format(state))
             return line_wp_idx, state
 
         return -1, TrafficLight.UNKNOWN
