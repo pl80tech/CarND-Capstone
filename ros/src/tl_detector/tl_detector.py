@@ -80,6 +80,7 @@ class TLDetector(object):
         config_file = open("tl_classification_config.yaml")
         config_params = yaml.load(config_file)
         self.skip_interval = config_params['skip_interval']
+        #rospy.loginfo("self.skip_interval = {}".format(self.skip_interval))
         config_file.close()
 
         rospy.spin()
@@ -163,7 +164,7 @@ class TLDetector(object):
             # Skip processing the classification
             self.counter += 1
             rospy.loginfo("counter = {}".format(self.counter))
-            if self.counter % self.skip_interval == 0:
+            if self.counter % self.skip_interval != 1:
                 rospy.loginfo("skip processing the classification")
                 return self.last_state
 
