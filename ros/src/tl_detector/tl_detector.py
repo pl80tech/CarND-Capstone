@@ -67,7 +67,8 @@ class TLDetector(object):
         self.save_inference_image = sys.argv[3] == 'true'
 
         # Save camera image and light state to csv file
-        self.csvfile = open("lightstate.csv", 'w')
+        if (self.save_camera_image):
+            self.csvfile = open("lightstate.csv", 'w')
 
         # Get detection graph and category index of model#3 (faster_rcnn_resnet101_coco_2018_01_28)
         if (self.save_inference_image):
