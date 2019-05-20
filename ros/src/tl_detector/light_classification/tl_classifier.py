@@ -52,6 +52,7 @@ class TLClassifier(object):
         end_time = time.time()
         rospy.loginfo("Processing time for image inference is {} (s)".format(end_time - start_time))
 
+        # Only return classification result if inference score is better than threshold
         if (scores[0] > self.detection_threshold):
             detected_class = self.category_index[classes[0]]['name']
             rospy.loginfo("Detected traffic light is {} with highest score = {}".format(detected_class, scores[0]))
