@@ -37,6 +37,7 @@ def main():
 
     # Get image list from specified path
     images = os.listdir(imagepath)
+    images.sort()
 
     # Load and process each image in the list
     for fname in images:
@@ -57,6 +58,8 @@ def main():
         # Output inference result
         detected_class = category_index[classes[0]]['name']
         print("Object " + detected_class + " is detected with highest score " + str(scores[0]))
+        print("classes = {}".format(classes))
+        print("scores = {}".format(scores))
 
 if __name__ == "__main__":
     print(tf.__version__)
