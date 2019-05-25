@@ -71,6 +71,11 @@ The implemented code can be compiled successfully by catkin_make. Refer to [/ros
 
 This is a configuration file to customize the parameters for detecting and classifying the traffic lights without recompiling for quick confirmation and easy debug.
 
+* path_to_graph: path to the frozen graph of the model
+* path_to_label: path to the label map of the model
+* detection_threshold: threshold to select the detected result for classification
+* skip_interval: interval to skip processing the images from camera
+
 ### use_simulator_light_state
 
 This is a defined parameter for specifying as an argument in command line to use the light state from simulator instead of detecting and classifying directly from camera image (for testing/debugging purpose). It is disabled by default and enabled by specifying as below:
