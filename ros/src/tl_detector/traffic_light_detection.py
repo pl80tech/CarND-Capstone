@@ -133,6 +133,8 @@ def get_model_info(model):
         MODEL_NAME = 'faster_rcnn_resnet101_coco_11_06_2017'
     elif (model == 8):
         MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
+    elif (model == 9):
+        MODEL_NAME = 'ssd_inception_v2_coco_11_06_2017'
 
     MODEL_FILE = MODEL_NAME + '.tar.gz'
     DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
