@@ -96,3 +96,7 @@ This is a defined parameter for specifying as an argument in command line to sav
 ```shell
 $ roslaunch launch/styx.launch save_camera_image:=true
 ```
+
+### save_inference_image
+
+This is a defined parameter for specifying as an argument in command line to save inference image for easy comparison.
