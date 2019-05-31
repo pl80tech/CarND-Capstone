@@ -99,4 +99,8 @@ $ roslaunch launch/styx.launch save_camera_image:=true
 
 ### save_inference_image
 
-This is a defined parameter for specifying as an argument in command line to save inference image for easy comparison.
+This is a defined parameter for specifying as an argument in command line to save inference image for easy comparison. It is disabled by default and enabled by specifying as below:
+
+```shell
+$ roslaunch launch/styx.launch save_camera_image:=true save_inference_image:=true
+```
