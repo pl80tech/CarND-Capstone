@@ -165,7 +165,7 @@ class TLDetector(object):
             # Skip processing the classification
             self.counter += 1
             rospy.loginfo("counter = {}".format(self.counter))
-            if self.counter % self.skip_interval != 1:
+            if (self.skip_interval > 0 and self.counter % self.skip_interval != 1):
                 rospy.loginfo("skip processing the classification")
                 return self.detected_light
 
