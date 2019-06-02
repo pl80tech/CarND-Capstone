@@ -17,6 +17,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 	* [Traffic light detection node](#Traffic-light-detection-node)
 	* [Waypoint updater node](#Waypoint-updater-node)
 	* [DBW node](#DBW-node)
+* [Dataset preparation](#Dataset-preparation)
 * [Notes](#Notes)
 
 [//]: # (Image References)
@@ -63,6 +64,15 @@ The implemented code can be compiled successfully by catkin_make. Refer to [/ros
 ### Waypoint updater node
 
 ### DBW node
+
+---
+## Dataset preparation
+
+The dataset for training and testing the model are uploaded to Google Drive and can be downloaded by following script: [dataset_prepare.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/dataset_prepare.py). Here is an example of downloading dataset#1.
+
+```shell
+$ python dataset_prepare.py 1
+```
 
 ---
 ## Notes
