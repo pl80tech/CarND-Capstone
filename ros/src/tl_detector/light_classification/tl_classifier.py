@@ -4,6 +4,7 @@ import rospy
 import time
 import cv2
 import yaml
+import numpy as np
 from keras import backend as K
 from keras.models import load_model
 
