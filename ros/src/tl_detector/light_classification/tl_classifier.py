@@ -4,6 +4,8 @@ import rospy
 import time
 import cv2
 import yaml
+from keras import backend as K
+from keras.models import load_model
 
 class TLClassifier(object):
     def __init__(self):
@@ -40,6 +42,10 @@ class TLClassifier(object):
         else:
             # Use newly built model
             rospy.loginfo("Use newly built model for traffic light classification")
+            self.path_to_model = config['path_to_model']
+            self.model = load_model(self.path_to_model)
+            self.model._make_predict_function()
+            self.graph = K.tf.get_default_graph()
 
         # Close the config file
         config_file.close()
