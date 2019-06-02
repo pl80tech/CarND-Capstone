@@ -21,6 +21,9 @@ def main():
     if model == 1:
         gid = '1An4y70YiEyRCFkrsig75iBggEtHTZZHq'
         filename = "frozen_inference_graph.pb"
+    if model == 2:
+        gid = '1lKnSYbRxVOptBBZZptNF67kw-ob0iuxs'
+        filename = "for_simulator.h5"
     else:
         print("Not available yet. To be added")
 
