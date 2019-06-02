@@ -84,6 +84,26 @@ class TLClassifier(object):
                 rospy.loginfo("No traffic light is detected. Keep the last light state")
         else:
             # Use newly built model
-            rospy.loginfo("Start top redict traffic light")
+            rospy.loginfo("Start to predict traffic light")
+            try:
+                with self.graph.as_default ():
+                    # Get prediction result
+                    image_reshape = np.reshape(image,  (1, 600, 800, 3))
+                    predict_list = self.model.predict(image_reshape)
+                    predict_result = np.argmax(predict_list)
+
+                    # Set classification result
+                    if (predict_result == 0):
+                        self.detected_light = TrafficLight.RED
+                    elif (predict_result == 1):
+                        self.detected_light = TrafficLight.YELLOW
+                    elif (predict_result == 2):
+                        self.detected_light = TrafficLight.GREEN
+                    else:
+                        self.detected_light = TrafficLight.UNKNOWN
+
+            except Exception as e:
+                rospy.logerr(e)
+                return TrafficLight.UNKNOWN
 
         return self.detected_light
