@@ -32,6 +32,10 @@ def main():
         # More data on 1st intersection
         gid = '1V57U1WxIW6max3chomEgXFFt2n8uViK7'
         filename = "dataset4.zip"
+    elif dataset == 5:
+        # Nearly one lap on simulator
+        gid = '1Wb4HG2fxXhHzG_DVLJYr5DhM_DeHFGIn'
+        filename = "dataset4.zip"
     else:
         print("Not available yet. To be added")
 
