@@ -24,6 +24,10 @@ def main():
     elif dataset == 2:
         gid = '1FfpetULTpRBx62mr23IZ7dCdj7lQw_7o'
         filename = "dataset2.zip"
+    elif dataset == 3:
+        # One lap on simulator
+        gid = '1Ne_6cADJWKmWCqFdV92f8cGxbcuZQDyv'
+        filename = "dataset3.zip"
     else:
         print("Not available yet. To be added")
 
