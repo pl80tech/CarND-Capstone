@@ -18,6 +18,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 	* [Waypoint updater node](#Waypoint-updater-node)
 	* [DBW node](#DBW-node)
 * [Dataset preparation](#Dataset-preparation)
+* [Get model file](#Get-model-file)
 * [Notes](#Notes)
 
 [//]: # (Image References)
@@ -72,6 +73,15 @@ The dataset for training and testing the model are uploaded to Google Drive and 
 
 ```shell
 $ python dataset_prepare.py 1
+```
+
+---
+## Get model file
+
+The trained models for detection and classification (big size) are uploaded in Google Drive and can be downloaded by following script: [get_final_model.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/get_final_model.py). Here is an example of downloading model#2.
+
+```shell
+$ python get_final_model.py 2
 ```
 
 ---
