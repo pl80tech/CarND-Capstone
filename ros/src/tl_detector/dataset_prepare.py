@@ -31,9 +31,8 @@ def main():
         gid = '18oFKVp_5zoMxSsybnyHU6eGG9cPRvC-k'
         filename = "dataset4.zip"
     elif dataset == 5:
-        # Nearly one lap on simulator
-        gid = '1Wb4HG2fxXhHzG_DVLJYr5DhM_DeHFGIn'
-        filename = "dataset5.tar.gz"
+        gid = '1eaRbIDDyIK7FpWEByRpOnBUpNLm3w_e7'
+        filename = "dataset5.zip"
     else:
         print("Not available yet. To be added")
 
