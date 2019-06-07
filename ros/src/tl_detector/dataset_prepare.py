@@ -25,9 +25,8 @@ def main():
         gid = '1FfpetULTpRBx62mr23IZ7dCdj7lQw_7o'
         filename = "dataset2.zip"
     elif dataset == 3:
-        # One lap on simulator
-        gid = '1Ne_6cADJWKmWCqFdV92f8cGxbcuZQDyv'
-        filename = "dataset3.tar.gz"
+        gid = '1i3Mpdl4IQHutHJ8HRygjEASIgrklEuER'
+        filename = "dataset3.zip"
     elif dataset == 4:
         # More data on 1st intersection
         gid = '1V57U1WxIW6max3chomEgXFFt2n8uViK7'
