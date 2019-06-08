@@ -70,6 +70,44 @@ def create_model(modelArch, input_shape, useDropout):
 
     return model
 
+# Path to the specified dataset (single or combined)
+# dataset == "3"   --> ["./dataset3/"]
+# dataset == "345" --> ["./dataset3/", "./dataset4/", "./dataset5/"]
+def dataset_getpath(dataset):
+    datapath = []
+    for i in range(len(dataset)):
+        path = "./dataset" + dataset[i] + "/"
+        datapath.append(path)
+    return datapath
+
+def getData(path, label):
+    paths = os.listdir(path)
+    paths.sort()
+    path_to_images = []
+    labels = []
+    for fname in paths:
+        path_to_images.append(path + fname)
+        labels.append(label)
+    return path_to_images, labels
+
+def getFullData(path):
+    X = []
+    y = []
+    for label_class, folder in enumerate(['Red', 'Yellow', 'Green', 'Unknown']):
+        X_temp, y_temp = getData(path + folder + '/', label_class)
+        X += X_temp
+        y += y_temp
+    return X, y
+
+def getCombinedFullData(paths):
+    image_list = []
+    label_list = []
+    for path in paths:
+        X, y = getFullData(path)
+        image_list += X
+        label_list += y
+    return image_list, label_list
+
 # Main function
 def main():       
     # Initial setting and hyperparameters
