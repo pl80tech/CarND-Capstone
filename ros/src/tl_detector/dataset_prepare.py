@@ -36,6 +36,9 @@ def main():
     elif dataset == 6:
         gid = '1PJNEWRg7AkiiAtAlT7SQepYxviflrkGw'
         filename = "dataset6zip"
+    elif dataset == 7:
+        gid = '1ogs9wm0P4b7pDe_HZwqcW5gXlWi7qOfo'
+        filename = "dataset7zip"
     else:
         print("Not available yet. To be added")
 
