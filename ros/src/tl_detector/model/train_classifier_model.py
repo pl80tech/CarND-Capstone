@@ -48,6 +48,28 @@ def Nvidia_model_2(model, useDropout):
 
     return model
 
+# Create model
+def create_model(modelArch, input_shape, useDropout):
+    # Model definition
+    model = Sequential()
+
+    # Preprocessing layers
+    model.add(Lambda(lambda x: x / 255. - 0.5, input_shape=input_shape))
+    model.add(Cropping2D(cropping=((50, 20), (0, 0))))
+
+    # Model architecture
+    if modelArch == "1":
+        model = Nvidia_model_1(model, useDropout)
+    elif modelArch == "2":
+        model = Nvidia_model_2(model, useDropout)
+    else:
+        print("Not defined yet. To be added.")
+
+    # Define the loss, optimizer and metrics
+    model.compile(loss='mse', optimizer='adam', metrics=['accuracy'])
+
+    return model
+
 # Main function
 def main():       
     # Initial setting and hyperparameters
