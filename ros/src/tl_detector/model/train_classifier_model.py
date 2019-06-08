@@ -2,6 +2,9 @@ import sys
 import os
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+#%matplotlib inline
 from keras.models import Sequential
 from keras.layers import Lambda, Cropping2D, Conv2D, Flatten, Dense, Dropout
 
@@ -184,6 +187,44 @@ def model_save(model, saveinfo):
     savefile = './trained_data/model_' + saveinfo + '.h5'
     print("Save model to file: " + savefile)
     model.save(savefile)
+
+# Plot learning curve
+def plot_learning_curve(path):
+    plt.figure(figsize=(10,6))
+    # Load calculated accuracy from history
+    loss, acc, val_loss, val_acc = load_history(path)
+
+    plt.plot(acc)
+    plt.plot(val_acc)
+    plt.title('Learning curve')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['Training set', 'Validation set'], loc='upper left')
+    plt.show()
+
+# Plot multiple learning curves
+def plot_multiple_learning_curves(paths, curve_info, legend_position, savefile):
+    plt.figure(figsize=(10,6))
+    for path in paths:
+        # Load calculated accuracy and loss from history
+        loss, acc, val_loss, val_acc = load_history(path)
+        plt.plot(acc)
+        plt.plot(val_acc)
+    plt.title('Learning curve')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    if legend_position == "out":
+        plt.legend(curve_info, bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)
+    elif legend_position == "in_UpperRight":
+        plt.legend(curve_info, loc='upper right')
+    elif legend_position == "in_LowerLeft":
+        plt.legend(curve_info, loc='lower left')
+
+    # Save file if the filename is specified
+    if savefile != None:
+        print("Save plotted image to " + savefile)
+        plt.savefig(savefile)
+    plt.show()
 
 # Main function
 def main():       
