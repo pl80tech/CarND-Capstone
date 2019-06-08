@@ -7,6 +7,9 @@ import matplotlib.image as mpimg
 #%matplotlib inline
 from keras.models import Sequential
 from keras.layers import Lambda, Cropping2D, Conv2D, Flatten, Dense, Dropout
+from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
+from keras.utils.np_utils import to_categorical
 
 # Add layers for NVIDIA model (Architecture #1)
 def Nvidia_model_1(model, useDropout):
@@ -225,6 +228,54 @@ def plot_multiple_learning_curves(paths, curve_info, legend_position, savefile):
         print("Save plotted image to " + savefile)
         plt.savefig(savefile)
     plt.show()
+
+# Pipeline to train and save the model
+def training_pipeline(modelArch, dataset, useDropout, batchsize, n_epoch):
+    # Shape of input data
+    input_shape = (240, 320, 3)
+
+    # Create model
+    model = create_model(modelArch, input_shape, useDropout)
+
+    # Get the path to the dataset
+    datapath = dataset_getpath(dataset)
+
+    # Get single or combined data
+    image_list, label_list = getCombinedFullData(datapath)
+
+    print("length of image list =", len(image_list))
+
+    # Shuffle and split data
+    image_list_shuffle, label_list_shuffle = shuffle(image_list, label_list, random_state=0)
+    X_train, X_val, y_train, y_val = train_test_split(image_list_shuffle, label_list_shuffle, test_size=0.2, random_state=0)
+
+    # Change label to category
+    y_train = to_categorical(y_train)
+    y_val = to_categorical(y_val)
+
+    # Generate samples with batch size on demand (yield)
+    train_generator = generator(X_train, y_train, batchsize)
+    validation_generator = generator(X_val, y_val, batchsize)
+    samples_per_epoch = len(X_train)
+    steps_per_epoch = int(samples_per_epoch/batchsize)
+    X_val_len = len(X_val)
+    val_steps = int(X_val_len/batchsize)
+    history_object = model.fit_generator(generator = train_generator,
+                                        steps_per_epoch = steps_per_epoch,
+                                        validation_data = validation_generator,
+                                        validation_steps = val_steps,
+                                        epochs = n_epoch, verbose = 1)
+
+    print("-----------------------------")
+
+    # Collect training information for savefile
+    saveinfo = get_traininfo(modelArch, dataset, useDropout, batchsize, n_epoch)
+
+    # Save model
+    model_save(model, saveinfo)
+
+    # Save history
+    save_history(history_object, saveinfo)
 
 # Main function
 def main():       
