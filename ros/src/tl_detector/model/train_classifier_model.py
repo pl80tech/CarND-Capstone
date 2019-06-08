@@ -178,6 +178,13 @@ def load_history(path):
     val_acc = hist_pickle["val_acc"]
     return loss, acc, val_loss, val_acc
 
+# Save model
+def model_save(model, saveinfo):
+    # Filename (with extra information) to save model
+    savefile = './trained_data/model_' + saveinfo + '.h5'
+    print("Save model to file: " + savefile)
+    model.save(savefile)
+
 # Main function
 def main():       
     # Initial setting and hyperparameters
