@@ -11,3 +11,4 @@ h5py==2.6.0
 protobuf==3.6.1
 requests
 matplotlib
+sklearn
