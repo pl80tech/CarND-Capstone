@@ -195,6 +195,26 @@ class TLDetector(object):
             self.detected_light = self.light_classifier.get_classification(cv_image)
             rospy.loginfo("Detected traffic light = {}, Simulator's light state = {}".format(self.detected_light, light.state))
 
+            # Save image with color text showing classification result
+            if (self.save_classified_image):
+                time_info = timer()
+                filename = os.path.join("./output/", "classified_image_" + "%s.jpg" % time_info)
+                font = cv2.FONT_HERSHEY_SIMPLEX
+                if self.detected_light == 0:
+                    text = 'Traffic light: RED'
+                    color = (0,0,255)
+                elif self.detected_light == 1:
+                    text = 'Traffic light: YELLOW'
+                    color = (0,255,255)
+                elif self.detected_light == 2:
+                    text = 'Traffic light: GREEN'
+                    color = (0,255,0)
+                else:
+                    text = 'Traffic light: UNKNOWN'
+                    color = (255,0,0)
+                cv2.putText(cv_image, text, (50, 50), font, 2, color, thickness=2)
+                cv2.imwrite(filename, cv_image)
+
             return self.detected_light
 
     def process_traffic_lights(self):
