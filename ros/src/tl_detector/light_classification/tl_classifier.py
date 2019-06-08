@@ -89,7 +89,8 @@ class TLClassifier(object):
             try:
                 with self.graph.as_default ():
                     # Get prediction result
-                    image_reshape = np.reshape(image,  (1, 600, 800, 3))
+                    image = cv2.resize(image, (320, 240))
+                    image_reshape = np.reshape(image,  (1, 240, 320, 3))
                     predict_list = self.model.predict(image_reshape)
                     predict_result = np.argmax(predict_list)
 
