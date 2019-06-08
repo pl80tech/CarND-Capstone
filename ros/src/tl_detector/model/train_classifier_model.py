@@ -153,6 +153,31 @@ def get_traininfo(modelArch, dataset, useDropout, batchsize, n_epoch):
 
     return saveinfo
 
+import pickle
+# Save history
+def save_history(history_obj, saveinfo):
+    hist_pickle = {}
+    hist_pickle["loss"] = history_obj.history['loss']
+    hist_pickle["val_loss"] = history_obj.history['val_loss']
+    hist_pickle["acc"] = history_obj.history['acc']
+    hist_pickle["val_acc"] = history_obj.history['val_acc']
+
+    # Filename (with extra information) to save history
+    savefile = './trained_data/history_' + saveinfo + '.bin'
+
+    print("Save history to pickle file: " + savefile)
+
+    pickle.dump(hist_pickle, open(savefile,"wb"))
+
+# Load history
+def load_history(path):
+    hist_pickle = pickle.load(open(path, "rb"))
+    loss = hist_pickle["loss"]
+    val_loss = hist_pickle["val_loss"]
+    acc = hist_pickle["acc"]
+    val_acc = hist_pickle["val_acc"]
+    return loss, acc, val_loss, val_acc
+
 # Main function
 def main():       
     # Initial setting and hyperparameters
