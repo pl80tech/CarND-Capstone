@@ -42,6 +42,9 @@ def main():
     elif dataset == 8:
         gid = '1xbec_UGOyW59mxdfA8fIdCUH05q5XBj-'
         filename = "dataset8.zip"
+    elif dataset == 9:
+        gid = '1Kn9E0DfPXEYy0xzrkFuOrSiduehNxogh'
+        filename = "dataset9.zip"
     else:
         print("Not available yet. To be added")
 
