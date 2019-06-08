@@ -86,6 +86,13 @@ class TLDetector(object):
         # Check whether to save classified images
         self.save_classified_image = config_params['save_classified_image']
 
+        # Create folder for input and output image
+        if (self.save_classified_image):
+            if not os.path.exists('input'):
+                os.makedirs('input')
+            if not os.path.exists('output'):
+                os.makedirs('output')
+
         config_file.close()
 
         rospy.spin()
