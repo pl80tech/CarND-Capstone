@@ -133,6 +133,26 @@ def read_images(img_list):
         images.append(image)
     return np.array(images)
 
+# Collect training information for savefile
+import datetime
+def get_traininfo(modelArch, dataset, useDropout, batchsize, n_epoch):
+    # Get current date & time
+    dt_now = datetime.datetime.now()
+
+    # Filename (with extra information)
+    saveinfo = str(dt_now.date()) + '_' + str(dt_now.hour) + str(dt_now.minute) \
+             + '_modelArch' + str(modelArch) \
+             + '_dataset' + str(dataset)
+
+    if useDropout == "True":
+        saveinfo += '_useDropout'
+    else:
+        saveinfo += '_noDropout'
+
+    saveinfo += '_batch' + str(batchsize) + '_epoch' + str(n_epoch)
+
+    return saveinfo
+
 # Main function
 def main():       
     # Initial setting and hyperparameters
