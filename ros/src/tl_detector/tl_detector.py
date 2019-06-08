@@ -82,6 +82,10 @@ class TLDetector(object):
         config_params = yaml.load(config_file)
         self.skip_interval = config_params['skip_interval']
         #rospy.loginfo("self.skip_interval = {}".format(self.skip_interval))
+
+        # Check whether to save classified images
+        self.save_classified_image = config_params['save_classified_image']
+
         config_file.close()
 
         rospy.spin()

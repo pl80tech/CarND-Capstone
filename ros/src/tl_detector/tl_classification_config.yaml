@@ -4,3 +4,4 @@ path_to_model: 'model/final/for_simulator.h5'
 detection_threshold: 0.5
 skip_interval: 0
 use_pretrained_tf_model: false
+save_classified_image: false
