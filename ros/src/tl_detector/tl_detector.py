@@ -198,7 +198,9 @@ class TLDetector(object):
             # Save image with color text showing classification result
             if (self.save_classified_image):
                 time_info = timer()
-                filename = os.path.join("./output/", "classified_image_" + "%s.jpg" % time_info)
+                input_filename = os.path.join("./input/", "camera_image_" + "%s.jpg" % time_info)
+                cv2.imwrite(input_filename, cv_image)
+                output_filename = os.path.join("./output/", "classified_image_" + "%s.jpg" % time_info)
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 if self.detected_light == 0:
                     text = 'Traffic light: RED'
@@ -213,7 +215,7 @@ class TLDetector(object):
                     text = 'Traffic light: UNKNOWN'
                     color = (255,0,0)
                 cv2.putText(cv_image, text, (50, 50), font, 2, color, thickness=2)
-                cv2.imwrite(filename, cv_image)
+                cv2.imwrite(output_filename, cv_image)
 
             return self.detected_light
 
