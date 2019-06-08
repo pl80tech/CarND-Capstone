@@ -1,4 +1,7 @@
 import sys
+import os
+import cv2
+import numpy as np
 from keras.models import Sequential
 from keras.layers import Lambda, Cropping2D, Conv2D, Flatten, Dense, Dropout
 
@@ -107,6 +110,28 @@ def getCombinedFullData(paths):
         image_list += X
         label_list += y
     return image_list, label_list
+
+# Create generator
+def generator(X, y, batchsize):
+    num_samples = len(X)
+    while 1:
+        for offset in range(0, num_samples, batchsize):
+            X_batch_filenames = X[offset:offset+batchsize]
+            y_batch = y[offset:offset+batchsize]
+            X_batch = read_images(X_batch_filenames)
+            y_batch = np.array(y_batch)
+            yield X_batch, y_batch
+
+# A function to read the image from the list of image names
+def read_images(img_list):
+    images = []
+    for i in range(len(img_list)):
+        filepath = img_list[i]
+        image = cv2.imread(filepath)
+        size = (320, 240)
+        image = cv2.resize(image, size)
+        images.append(image)
+    return np.array(images)
 
 # Main function
 def main():       
