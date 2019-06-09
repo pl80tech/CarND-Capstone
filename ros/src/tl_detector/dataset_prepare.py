@@ -19,10 +19,10 @@ def main():
     
     # Get id and filename
     if dataset == 1:
-        gid = '1NJ8mDGhX16NksFNfpKvPlEt4UVIqhIL3'
+        gid = '1T3BK7WURzuVPWASnZ0x9FJvF7Ge_kSbK'
         filename = "dataset1.zip"
     elif dataset == 2:
-        gid = '1FfpetULTpRBx62mr23IZ7dCdj7lQw_7o'
+        gid = '1Bd41_ALDsKNubIu483-NloMPHlVozZ6r'
         filename = "dataset2.zip"
     elif dataset == 3:
         gid = '1i3Mpdl4IQHutHJ8HRygjEASIgrklEuER'
