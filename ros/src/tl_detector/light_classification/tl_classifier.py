@@ -85,12 +85,12 @@ class TLClassifier(object):
                 rospy.loginfo("No traffic light is detected. Keep the last light state")
         else:
             # Use newly built model
+            image = cv2.resize(image, (320, 240))
+            image_reshape = np.reshape(image,  (1, 240, 320, 3))
             rospy.loginfo("Start to predict traffic light")
             try:
                 with self.graph.as_default ():
                     # Get prediction result
-                    image = cv2.resize(image, (320, 240))
-                    image_reshape = np.reshape(image,  (1, 240, 320, 3))
                     predict_list = self.model.predict(image_reshape)
                     predict_result = np.argmax(predict_list)
 
