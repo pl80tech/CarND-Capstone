@@ -5,3 +5,4 @@ detection_threshold: 0.5
 skip_interval: 0
 use_pretrained_tf_model: false
 save_classified_image: false
+distance_to_be_processed: 180

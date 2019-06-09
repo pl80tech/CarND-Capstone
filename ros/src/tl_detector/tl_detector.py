@@ -86,6 +86,9 @@ class TLDetector(object):
         # Check whether to save classified images
         self.save_classified_image = config_params['save_classified_image']
 
+        # Not need to process the classification if being still far from next traffic light
+        self.distance_to_be_processed = config_params['distance_to_be_processed']
+
         # Create folder for input and output image
         if (self.save_classified_image):
             if not os.path.exists('input'):
@@ -256,7 +259,7 @@ class TLDetector(object):
                     closest_light = light
                     line_wp_idx = temp_wp_idx
 
-        if closest_light:
+        if (closest_light) and ((line_wp_idx - car_wp_idx)  < self.distance_to_be_processed):
             state = self.get_light_state(closest_light)
             rospy.loginfo("Classification result = {}".format(state))
             return line_wp_idx, state
