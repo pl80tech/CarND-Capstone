@@ -16,17 +16,16 @@ def runPrediction(model, input_path, output_path):
 		img_resize = cv2.resize(img, (320, 240))
 		img_reshape = np.reshape(img_resize, (1, 240, 320, 3))
 		score_list = model.predict(img_reshape)
-		light_type = np.argmax(score_list)
-		#print("light_type = " + str(light_type))
+		result = np.argmax(score_list)
 
 		# Put text to image
-		if light_type == 0:
+		if result == 0:
 			text = 'Traffic light: RED'
 			color = (0,0,255)
-		elif light_type == 1:
+		elif result == 1:
 			text = 'Traffic light: YELLOW'
 			color = (0,255,255)
-		elif light_type == 2:
+		elif result == 2:
 			text = 'Traffic light: GREEN'
 			color = (0,255,0)
 		else:
