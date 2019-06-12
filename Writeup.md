@@ -126,6 +126,7 @@ This is a configuration file to customize the parameters for detecting and class
 * path_to_label: path to the label map of the model
 * detection_threshold: threshold to select the detected result for classification
 * skip_interval: interval to skip processing the images from camera
+* distance_to_be_processed: the distance to next traffic light before which the detection and classification will be skipped
 
 ### use_simulator_light_state
 
