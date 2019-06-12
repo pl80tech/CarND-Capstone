@@ -71,15 +71,6 @@ The implemented code can be compiled successfully by catkin_make. Refer to [/ros
 ### DBW node
 
 ---
-## Dataset preparation
-
-The dataset for training and testing the model are uploaded to Google Drive and can be downloaded by following script: [dataset_prepare.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/dataset_prepare.py). Here is an example of downloading dataset#1.
-
-```shell
-$ python dataset_prepare.py 1
-```
-
----
 ## Model training approach
 
 I have considered and tried to use below approaches to train the models for detecting and classifying traffic lights.
@@ -94,6 +85,15 @@ Due to time limitation, my submission is based on approach#1. However, my code i
 ## Model training and testing
 
 I implemented following script [train_classifier_model.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/train_classifier_model.py) to create the model and necessary helper functions for training and testing. Then I trained the model with multiple combinations of setting and hyperparameters for tuning the best final model (see [tune_classifier_model.ipynb](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/tune_classifier_model.ipynb) for more detail). I also created [test_trained_classifier.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/test_trained_classifier.py) to run the trained classfication model for all images in specified path for quick verification.
+
+---
+## Dataset preparation
+
+The dataset for training and testing the model are uploaded to Google Drive and can be downloaded by following script: [dataset_prepare.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/dataset_prepare.py). Here is an example of downloading dataset#1.
+
+```shell
+$ python dataset_prepare.py 1
+```
 
 ---
 ## Get model file
