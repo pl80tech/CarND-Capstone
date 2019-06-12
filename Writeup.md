@@ -28,6 +28,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 
 [architecture]: ./imgs/architecture.png "System Architecture Diagram"
 [highway_sim_light_state]: ./video/highway_use_simulator_light_state.gif "Driving on highway using simulator light state"
+[highway_sim_autonomous]: ./video/highway_use_simulator_autonomous.gif "Driving on highway autonomously"
 
 ---
 ## About Capstone Project
@@ -107,6 +108,10 @@ $ python get_final_model.py 2
 ## Output video
 
 Here is the video when driving on simulator using my trained model. The car can detect the traffic lights correctly and control its speed to drive through the highway autonomously.
+
+| Link on Github | [highway_use_simulator_autonomous.mp4](https://github.com/pl80tech/CarND-Capstone/blob/master/video/highway_use_simulator_autonomous.mp4) |
+|:--------------:|:---------------:|
+| Link on Youtube | [![alt text][highway_sim_autonomous]](https://www.youtube.com/watch?v=1xd7hfKjxeM) |
 
 ---
 ## Notes
