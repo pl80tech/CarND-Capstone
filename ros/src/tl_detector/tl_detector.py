@@ -21,6 +21,7 @@ STATE_COUNT_THRESHOLD = 3
 class TLDetector(object):
     def __init__(self):
         rospy.init_node('tl_detector')
+        #rospy.init_node('tl_detector', log_level=rospy.DEBUG)
 
         self.pose = None
         self.waypoints = None
@@ -174,13 +175,13 @@ class TLDetector(object):
                 self.prev_light_loc = None
                 return self.last_state
 
-            rospy.loginfo("--------------------------------------------")
+            rospy.logdebug("--------------------------------------------")
 
             # Skip processing the classification
             self.counter += 1
-            rospy.loginfo("counter = {}".format(self.counter))
+            rospy.logdebug("counter = {}".format(self.counter))
             if (self.skip_interval > 0 and self.counter % self.skip_interval != 1):
-                rospy.loginfo("skip processing the classification")
+                rospy.logdebug("skip processing the classification")
                 return self.detected_light
 
             cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
@@ -203,7 +204,7 @@ class TLDetector(object):
 
             #Get and return classification result
             self.detected_light = self.light_classifier.get_classification(cv_image)
-            rospy.loginfo("Detected traffic light = {}, Simulator's light state = {}".format(self.detected_light, light.state))
+            rospy.logdebug("Detected traffic light = {}, Simulator's light state = {}".format(self.detected_light, light.state))
 
             # Save image with color text showing classification result
             if (self.save_classified_image):
