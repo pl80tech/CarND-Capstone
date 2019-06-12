@@ -95,6 +95,8 @@ The dataset for training and testing the model are uploaded to Google Drive and 
 $ python dataset_prepare.py 1
 ```
 
+Here is the script to download the whole dataset (#1 ~ #9) for training: [getCombinedDataset.sh](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/getCombinedDataset.sh)
+
 ---
 ## Get model file
 
