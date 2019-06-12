@@ -21,6 +21,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 * [Model training and testing](#Model-training-and-testing)
 * [Dataset preparation](#Dataset-preparation)
 * [Get model file](#Get-model-file)
+* [Output video](#Output-video)
 * [Notes](#Notes)
 
 [//]: # (Image References)
@@ -101,6 +102,11 @@ The trained models for detection and classification (big size) are uploaded in G
 ```shell
 $ python get_final_model.py 2
 ```
+
+---
+## Output video
+
+Here is the video when driving on simulator using my trained model. The car can detect the traffic lights correctly and control its speed to drive through the highway autonomously.
 
 ---
 ## Notes
