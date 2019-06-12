@@ -2,7 +2,7 @@ path_to_graph: 'model/final/frozen_inference_graph.pb'
 path_to_label: 'model/final/tl_detect_label_map.pbtxt'
 path_to_model: 'model/final/for_simulator.h5'
 detection_threshold: 0.5
-skip_interval: 0
+skip_interval: 2
 use_pretrained_tf_model: false
 save_classified_image: false
 distance_to_be_processed: 180
