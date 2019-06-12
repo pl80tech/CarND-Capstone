@@ -17,6 +17,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 	* [Traffic light detection node](#Traffic-light-detection-node)
 	* [Waypoint updater node](#Waypoint-updater-node)
 	* [DBW node](#DBW-node)
+* [Model training approach](#Model-training-approach)
 * [Dataset preparation](#Dataset-preparation)
 * [Get model file](#Get-model-file)
 * [Notes](#Notes)
@@ -74,6 +75,17 @@ The dataset for training and testing the model are uploaded to Google Drive and 
 ```shell
 $ python dataset_prepare.py 1
 ```
+
+---
+## Model training approach
+
+I have considered and tried to use below approaches to train the models for detecting and classifying traffic lights.
+
+* Approach 1 (straight forward): use an NVIDIA-model based CNN architecture and train the model from scratch using the dataset collecting from camera images
+* Approach 2: use existed/pretrained tensorflow models for object detection and retrain for only classifying traffic lights
+* Approach 3: use 2 models - one for detecting/abstracting traffic light from camera image and one for classifying the detected traffic light
+
+Due to time limitation, my submission is based on approach#1.
 
 ---
 ## Get model file
