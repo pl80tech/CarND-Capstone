@@ -18,6 +18,7 @@ This is my writeup for the project "Capstone" of Self Driving Car Nanadegree on 
 	* [Waypoint updater node](#Waypoint-updater-node)
 	* [DBW node](#DBW-node)
 * [Model training approach](#Model-training-approach)
+* [Model training and testing](#Model-training-and-testing)
 * [Dataset preparation](#Dataset-preparation)
 * [Get model file](#Get-model-file)
 * [Notes](#Notes)
@@ -86,6 +87,11 @@ I have considered and tried to use below approaches to train the models for dete
 * Approach 3: use 2 models - one for detecting/abstracting traffic light from camera image and one for classifying the detected traffic light
 
 Due to time limitation, my submission is based on approach#1.
+
+---
+## Model training and testing
+
+I implemented following script [train_classifier_model.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/train_classifier_model.py) to create the model and necessary helper functions for training and testing. Then I trained the model with multiple combinations of setting and hyperparameters for tuning the best final model (see [tune_classifier_model.ipynb](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/tune_classifier_model.ipynb) for more detail). I also created [test_trained_classifier.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/test_trained_classifier.py) to run the trained classfication model for all images in specified path for quick verification.
 
 ---
 ## Get model file
