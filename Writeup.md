@@ -88,7 +88,7 @@ I have considered and tried to use below approaches to train the models for dete
 * Approach 2: use existed/pretrained tensorflow models for object detection and retrain for only classifying traffic lights
 * Approach 3: use 2 models - one for detecting/abstracting traffic light from camera image and one for classifying the detected traffic light
 
-Due to time limitation, my submission is based on approach#1.
+Due to time limitation, my submission is based on approach#1. However, my code in this repository is the mix of many implementations and trials for these approaches.
 
 ---
 ## Model training and testing
