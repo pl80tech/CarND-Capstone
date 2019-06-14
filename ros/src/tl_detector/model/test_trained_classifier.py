@@ -1,3 +1,16 @@
+'''
+Script to test the trained models with all images in specified folder
+
+Command:
+$ python test_trained_classifier.py arg1 arg2 arg3
+
+Input:
+- Path to the trained model (arg1)
+- Path to the folder including test images (arg2)
+
+Output:
+- Images with color text showing classification result - saved in specified folder (arg3)
+'''
 import os
 import sys
 import numpy as np
