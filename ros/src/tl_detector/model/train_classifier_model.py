@@ -89,6 +89,7 @@ def dataset_getpath(dataset):
         datapath.append(path)
     return datapath
 
+# Get list of paths to image and labels
 def getData(path, label):
     paths = os.listdir(path)
     paths.sort()
@@ -99,6 +100,7 @@ def getData(path, label):
         labels.append(label)
     return path_to_images, labels
 
+# Get full dataset from image folder for each label
 def getFullData(path):
     X = []
     y = []
@@ -108,6 +110,7 @@ def getFullData(path):
         y += y_temp
     return X, y
 
+# Get combined full dataset from specified paths
 def getCombinedFullData(paths):
     image_list = []
     label_list = []
