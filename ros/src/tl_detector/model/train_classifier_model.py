@@ -1,3 +1,26 @@
+'''
+Script to train model with specified settings & hyperparameter
+
+Command:
+$ python train_classified_model.py arg1 arg2 arg3 arg4 arg5
+
+    modelArch = sys.argv[1]
+    dataset = sys.argv[2]
+    useDropout = sys.argv[3]
+    batchsize = int(sys.argv[4])
+    n_epoch = int(sys.argv[5])
+
+Input:
+- arg1: model architecture
+- arg2: dataset for training and validating (single or combined dataset)
+- arg3: use dropout in model or not
+- arg4: batch size
+- arg5: number of epoch
+
+Output:
+- History file (with loss and accuracy) and model file (.h5) after training is completed
+'''
+
 import sys
 import os
 import cv2
