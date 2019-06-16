@@ -66,9 +66,15 @@ The implemented code can be compiled successfully by catkin_make. Refer to [/ros
 
 ### Traffic light detection node
 
+To be updated.
+
 ### Waypoint updater node
 
+To be updated.
+
 ### DBW node
+
+To be updated.
 
 ---
 ## Model training approach
