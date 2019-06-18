@@ -92,6 +92,8 @@ Due to time limitation, my submission is based on approach#1. However, my code i
 
 I implemented following script [train_classifier_model.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/train_classifier_model.py) to create the model and necessary helper functions for training and testing. Then I trained the model with multiple combinations of setting and hyperparameters for tuning the best final model (see [tune_classifier_model.ipynb](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/tune_classifier_model.ipynb) for more detail). I also created [test_trained_classifier.py](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/test_trained_classifier.py) to run the trained classfication model for all images in specified path for quick verification.
 
+The [final model](https://github.com/pl80tech/CarND-Capstone/blob/master/ros/src/tl_detector/model/final/for_simulator.h5)I chose for submission is NVIDIA model (model #1) trained with batch size 16, number of epoch 20 and combined dataset from dataset #1 ~ #9.
+
 ---
 ## Dataset preparation
 
